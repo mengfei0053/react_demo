@@ -1,0 +1,16 @@
+{
+  "name": "learn_react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "babel-browser": "^6.1.19",
+    "babel-core": "^5.8.38"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

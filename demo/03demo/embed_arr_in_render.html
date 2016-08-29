@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../../react-15.3.1/build/react.js"></script>
+    <script src="../../react-15.3.1/build/react-dom.js"></script>
+    <script src="../../node_modules/babel-core/browser.js"></script>
+</head>
+
+<body>
+	 <div id="example"></div>
+	 <script type="text/babel">
+	 	var arr = [
+			<h1>hello world</h1>,
+			<h2>React is awesome</h2>
+	 	];
+
+	 	ReactDOM.render(
+	 		<div>{arr}</div>,
+	 		document.getElementById('example')
+	 	)
+	 	
+	 </script>
+
+</body>
+</html>

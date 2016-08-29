@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../../react-15.3.1/build/react.js"></script>
+    <script src="../../react-15.3.1/build/react-dom.js"></script>
+</head>
+
+<body>
+    <div id="example"></div>
+    <script>
+    var ExampleApplication = React.createClass({
+        render:function(){
+            return React.DOM.p(null,'hello,world')
+        }
+    })
+
+    var ExampleApplicationFactory = React.createFactory(ExampleApplication);
+
+
+
+        ReactDOM.render(
+        ExampleApplicationFactory(),
+        document.getElementById('example')
+        )
+    </script>
+</body>
+
+</html>

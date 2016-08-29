@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../../react-15.3.1/build/react.js"></script>
+    <script src="../../react-15.3.1/build/react-dom.js"></script>
+    <script src="../../node_modules/babel-core/browser.js"></script>
+</head>
+
+<body>
+    <div id="example"></div>
+    <!-- 
+    jsx语法，允许html标签直接写在js中，不加任何用你号
+
+     -->
+    <script type="text/babel">
+        var names = ['Alice','Emily','kate'];
+        var i = 0;//没有这个i，会报一个错误，提示遍历的div需要一个不重复的key
+        ReactDOM.render(
+            <div>
+                {
+                    names.map(function(name){
+                        i++;
+                        return <div key={i}>hello,{name}!</div>
+                    })
+                }
+            </div>,
+            document.getElementById('example')
+        )
+    </script>
+</body>
+
+</html>

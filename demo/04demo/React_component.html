@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../../react-15.3.1/build/react.js"></script>
+    <script src="../../react-15.3.1/build/react-dom.js"></script>
+    <script src="../../node_modules/babel-core/browser.js"></script>
+</head>
+
+<body>
+	 <div id="example"></div>
+	 <script type="text/babel">
+	 	//1. 创建一个组件的类，组件名字第一个字母必须大写
+	 	//2. 组件内只能有一个顶级标签，否则会报错
+
+	 	// 这是错误写法
+	 	// var HelloMessage = React.createClass({
+	 	// 	render:function(){
+	 	// 		return <h1>h1里的内容</h1>
+	 	// 		<p>p里的内容</p>;
+	 	// 	}
+	 	// })
+
+	 	//组件的用法与原生的 HTML 标签完全一致，可以任意加入属性，比如 <HelloMessage name="John"> ，就是 HelloMessage 组件加入一个 name 属性，值为 John。组件的属性可以在组件类的 this.props 对象上获取，比如 name 属性就可以通过 this.props.name 读取。
+
+	 	var HelloMessage = React.createClass({
+	 		render:function () {
+	 			return <h1>hello {this.props.name}</h1>;
+	 		}
+	 	});
+
+
+
+	 	ReactDOM.render(
+	 		<HelloMessage name="John" />,
+	 		document.getElementById('example')
+	 	)
+	 	
+	 </script>
+
+</body>
+</html>
