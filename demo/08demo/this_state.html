@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../../react-15.3.1/build/react.js"></script>
+    <script src="../../react-15.3.1/build/react-dom.js"></script>
+    <script src="../../node_modules/babel-core/browser.js"></script>
+</head>
+<body>
+	<div id="example"></div>
+	<script type="text/babel">
+		var LikeButton = React.createClass({
+			// 组件的getInitialState 方法用于定义初始状态，也就是一个对象，这个对象可以通过this.state属性获取
+			//当用户点击组件导致状态变化，this.setState方法就修改状态值，每次修改以后，自动调用this.render方法，
+			//再次渲染组件
+
+
+
+			//区分this.props和this.state
+			//this.props表示那些一旦定义，就不再改变的特性，而this.state是灰随着用户互动而产生变化的特性。
+			getInitialState:function () {
+				return {liked:false};
+			},
+			handleClick :function (event) {
+				this.setState({liked:!this.state.liked})
+			},
+			render:function () {
+				var text = this.state.liked ? 'like' : 'haven\'t liked';
+				return (
+						<p onClick={this.handleClick}>
+							You {text} this Click to toggle
+						</p>
+				)
+			}
+		});
+
+		ReactDOM.render(
+			<LikeButton />,
+			document.getElementById('example')
+		);
+	</script>
+</body>
+</html>

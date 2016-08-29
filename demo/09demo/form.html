@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../../react-15.3.1/build/react.js"></script>
+    <script src="../../react-15.3.1/build/react-dom.js"></script>
+    <script src="../../node_modules/babel-core/browser.js"></script>
+</head>
+<body>
+	<div id="example"></div>
+	<script type="text/babel">
+		var Input = React.createClass({
+			// 组件的getInitialState 方法用于定义初始状态，也就是一个对象，这个对象可以通过this.state属性获取
+			//当用户点击组件导致状态变化，this.setState方法就修改状态值，每次修改以后，自动调用this.render方法，
+			//再次渲染组件
+
+
+
+			//区分this.props和this.state
+			//this.props表示那些一旦定义，就不再改变的特性，而this.state是灰随着用户互动而产生变化的特性。
+			getInitialState:function () {
+				return {value:'hello!'};
+			},
+			handleChange :function (event) {
+				//为了获取文本输入框的值，不能用this.props.value读取，而要定义一个onChange事件的回调函数，通过event.target.value读取用户输入的值。
+				// textarea  select  radio 元素都属于这种情况
+				this.setState({value:event.target.value})
+			},
+			render:function () {
+				var value = this.state.value;
+				return (
+					<div>
+						<input type="text" value={value} onChange={this.handleChange} />
+						<p>{value}</p>
+					</div>
+				)
+			}
+		});
+
+		ReactDOM.render(
+			<Input />,
+			document.getElementById('example')
+		);
+	</script>
+</body>
+</html>
