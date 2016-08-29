@@ -10,6 +10,16 @@
 <body>
 	<div id="example"></div>
 	<script type="text/babel">
+		
+		// this.props.children属性表示组件的所有子节点
+		// this.props.children的值有三种可能，如果当前组件没有子节点，它就是undefined
+		// 如果有一个子节点，数据类型是object,
+		// 如果有多个子节点，数据类型是array
+		// 
+		// 
+		// React.Children是React提供的一个工具方法。用
+		// React.Children.map来遍历子节点，不用担心this.props.children的数据类型是undefined还是object.
+		// 更多的React.Children的方法，请参考官方文档。
 		var NoteList = React.createClass({
 			render:function(){
 				return (
