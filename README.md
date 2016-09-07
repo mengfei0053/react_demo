@@ -26,3 +26,6 @@
 - 10demo——组件的生命周期
     + component_life_cycle.html
 - 11demo——Ajax
+    + Ajax.html
+- 12demo-将promise对象传入组件
+    + Inset_promise_into.html
