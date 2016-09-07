@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../../react-15.3.1/build/react.js"></script>
+    <script src="../../react-15.3.1/build/react-dom.js"></script>
+    <script src="../../node_modules/babel-core/browser.js"></script>
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+	<div id="example"></div>
+	 <script type="text/babel">
+		var UserGist = React.createClass({
+			getInitialState : function(){
+				return {
+					username : '',
+					lastGistUrl : ''
+				};
+			},
+
+			//DOM加载后调用AJAX获取数据，获取数据后，对默认属性进行设置
+			componentDidMount : function(){
+				$.get(this.props.source,function(result){
+					var lastGist = result[0];
+					if(this.isMounted()){
+						this.setState({
+							username : lastGist.owner.login,
+							lastGistUrl : lastGist.html_url
+						})
+					}
+				}.bind(this))
+			},
+
+			render : function(){
+				return (
+					<div>
+						{this.state.username}'s last gist is <a href="{this.state.lastGistUrl}">here</a>.
+					</div>
+				)
+			}
+
+		});
+		ReactDOM.render(
+            <UserGist source="https://api.github.com/users/octocat/gists" />,
+            document.getElementById('example')
+        )
+	</script>   
+</body>
+</html>
