@@ -29,3 +29,4 @@
     + Ajax.html
 - 12demo-将promise对象传入组件
     + Inset_promise_into.html
+- demo13--服务器端使用
